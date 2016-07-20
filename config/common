@@ -57,8 +57,8 @@ LB_DEBCONF_FRONTEND="noninteractive"
 LB_DEBCONF_PRIORITY="critical"
 
 # $LB_INITRAMFS: set initramfs hook
-# (Default: auto)
-LB_INITRAMFS="auto"
+# (Default: none)
+LB_INITRAMFS="none"
 
 # $LB_INITRAMFS_COMPRESSION: set initramfs compression
 # (Default: gzip)

@@ -9,13 +9,22 @@ lb config\
  --cache false\
  --chroot-filesystem none\
  --debian-installer-gui false\
- --distribution sid\
- --parent-distribution sid\
- --parent-debian-installer-distribution sid\
+ --distribution jessie\
+ --parent-distribution jessie\
+ --parent-debian-installer-distribution jessie\
  --gzip-options '--best --rsyncable'\
- --initramfs none\
- --linux-flavours none\
- --linux-packages none\
+ --initramfs auto\
+ --linux-flavours ntc\
+ --linux-packages linux-image-4.4.11\
  --bootstrap-qemu-arch armhf\
  --bootstrap-qemu-static /usr/bin/qemu-arm-static
 
+echo -e "\
+\#!/bin/bash -x\n\
+for i in boot/vmlinuz* ; do\n\
+    kernel="$(basename "$i")"\n\
+    version="${kernel##vmlinuz-}"\n\
+    initrd="boot/initrd.img-${version}"\n\
+    [ -f "$initrd" ] || update-initramfs -c -k "$version" || true\n\
+done\n\
+" > config/hooks/0500-initrd.hook.chroot
