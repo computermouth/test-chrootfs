@@ -1,7 +1,7 @@
 [Image]
 Architecture: armhf
 Archive-Areas: main
-Distribution: sid
+Distribution: jessie
 Mirror-Bootstrap: http://ftp.debian.org/debian/
 
 [FIXME]
