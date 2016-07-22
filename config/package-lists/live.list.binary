@@ -3,3 +3,4 @@ openbox
 lightdm
 
 flash-kernel
+initramfs-tools
