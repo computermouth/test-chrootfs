@@ -6,4 +6,4 @@ for i in boot/vmlinuz* ; do
     [ -f "$initrd" ] || update-initramfs -c -k "$version" || true
     flash-kernel
     cp /usr/lib/linux-image-$version/sun5i-r8-chip.dtb /boot/
-#done
+done
