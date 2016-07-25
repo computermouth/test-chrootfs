@@ -5,3 +5,7 @@ if [[ $(grep "tar \${LIVE_IMAGE_NAME}-\${LIVE_IMAGE_ARCHITECTURE}." /usr/lib/liv
 fi
 
 sudo lb build
+
+sudo rm *.tar.tar
+sudo mv binary rootfs
+sudo tar -zcf server-rootfs.tar.gz rootfs
